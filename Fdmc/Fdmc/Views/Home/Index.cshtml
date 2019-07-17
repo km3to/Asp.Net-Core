@@ -1,8 +1,21 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using Fdmc.Models.ViewModels
+
+@model HomeIndexViewModel
+
+@{
+    this.ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Fluffy Duffy Munchkin Cats</h1>
+    <ul>
+        @foreach (var cat in this.Model.Cats)
+        {
+            <li>
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@cat.Id">@cat.Name</a>
+            </li>
+        }
+    </ul>
+
+    <a class="btn btn-info" asp-action="Add">Add Cat</a>
 </div>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Fdmc.Models;
 using Fdmc.Services.DataServices.Contracts;
+using Fdmc.Models.InputModels;
 
 namespace Fdmc.Controllers
 {
@@ -23,6 +24,34 @@ namespace Fdmc.Controllers
             var model = this.catService.GetAll();
 
             return this.View(model);
+        }
+
+        [Route("/cats/{id?}")]
+        public IActionResult Details(string id)
+        {
+            var model = this.catService.GetById(id);
+
+            return this.View(model);
+        }
+
+        [Route("/cats/add")]
+        public IActionResult Add()
+        {
+            return this.View();
+        }
+                
+        [Route("/cats/add")]
+        [HttpPost]
+        public IActionResult Add(CatCreateInputModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
+
+            this.catService.Create(model);
+
+            return this.RedirectToAction("Index");
         }
     }
 }

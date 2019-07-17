@@ -57,7 +57,7 @@ namespace Fdmc.Services.DataServices
         {
             var cat = this.dbContext.Cats.FirstOrDefault(x => x.Id == id);
 
-            if (cat != null)
+            if (cat == null)
             {
                 throw new Exception("No cat with such ID in DB");
             }

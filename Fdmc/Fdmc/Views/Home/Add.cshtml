@@ -1,0 +1,29 @@
+﻿@using Fdmc.Models.InputModels
+
+@model  CatCreateInputModel
+
+@{ 
+    this.ViewData["Title"] = "whatever";
+}
+
+    <form asp-action="Add">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+
+        <label asp-for="Age"></label>
+        <input asp-for="Age" />
+        <span asp-validation-for="Age"></span>
+
+        <label asp-for="Breed"></label>
+        <input asp-for="Breed" />
+        <span asp-validation-for="Breed"></span>
+
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" />
+        <span asp-validation-for="ImageUrl"></span>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-outline-dark" />
+        </div>
+    </form>

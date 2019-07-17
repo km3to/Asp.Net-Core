@@ -6,13 +6,18 @@
     this.ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div>
     <h1 class="display-4">Fluffy Duffy Munchkin Cats</h1>
     <ul>
         @foreach (var cat in this.Model.Cats)
         {
             <li>
                 <a asp-controller="Home" asp-action="Details" asp-route-id="@cat.Id">@cat.Name</a>
+                @for (int i = 0; i < 20; i++)
+                {
+                    @:&nbsp;
+                }
+                <a class="btn btn-sm btn-danger align-content-between" asp-controller="Home" asp-action="Delete" asp-route-id="@cat.Id">Delete</a>
             </li>
         }
     </ul>

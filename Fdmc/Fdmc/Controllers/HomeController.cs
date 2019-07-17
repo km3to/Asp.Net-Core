@@ -53,5 +53,12 @@ namespace Fdmc.Controllers
 
             return this.RedirectToAction("Index");
         }
+
+        public IActionResult Delete(string id)
+        {
+            this.catService.Delete(id);
+
+            return this.RedirectToAction("Index");
+        }
     }
 }

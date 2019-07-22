@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Panda.Web", "Panda.Web\Panda.Web.csproj", "{BD91EAEB-073A-4800-BCBD-B1053C399267}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Panda.Data", "Panda.Data\Panda.Data.csproj", "{2A1D7465-14C4-46F1-A466-E0CE5C7E12F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Panda.Data.Models", "Panda.Data.Models\Panda.Data.Models.csproj", "{4AB3FD19-D782-4232-B8D5-202892B644AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.BindingModels", "Panda.BindingModels\Panda.BindingModels.csproj", "{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD91EAEB-073A-4800-BCBD-B1053C399267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD91EAEB-073A-4800-BCBD-B1053C399267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD91EAEB-073A-4800-BCBD-B1053C399267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD91EAEB-073A-4800-BCBD-B1053C399267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A1D7465-14C4-46F1-A466-E0CE5C7E12F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A1D7465-14C4-46F1-A466-E0CE5C7E12F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A1D7465-14C4-46F1-A466-E0CE5C7E12F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A1D7465-14C4-46F1-A466-E0CE5C7E12F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB3FD19-D782-4232-B8D5-202892B644AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB3FD19-D782-4232-B8D5-202892B644AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB3FD19-D782-4232-B8D5-202892B644AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB3FD19-D782-4232-B8D5-202892B644AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1463E3BD-7DE9-489E-B97D-572385B02E5D}
+	EndGlobalSection
+EndGlobal

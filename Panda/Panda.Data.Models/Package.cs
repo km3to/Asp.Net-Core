@@ -14,18 +14,16 @@ namespace Panda.Data.Models
 
         public string ShippingAddress { get; set; }
 
-        public string PackageStatusId { get; set; }
-
         public PackageStatus PackageStatus { get; set; }
 
         public DateTime? EstimatedDeliveryDate { get; set; }
 
         public string RecipientId { get; set; }
 
-        public PandaUser Recipient { get; set; }
+        public virtual PandaUser Recipient { get; set; }
 
         public string ReceiptId { get; set; }
 
-        public Receipt Receipt { get; set; }
+        public virtual Receipt Receipt { get; set; }
     }
 }

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Panda.Data.Models
+﻿namespace Panda.Data.Models
 {
-    public class PackageStatus
+    public enum PackageStatus
     {
-        public string Id { get; set; }
-
-        public string Name { get; set; }
+        Pending = 1,
+        Shipped = 2,
+        Delivered = 3,
+        Aquired = 4
     }
 }

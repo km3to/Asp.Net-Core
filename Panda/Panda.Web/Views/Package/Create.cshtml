@@ -1,0 +1,52 @@
+﻿@using Panda.BindingModels.InputModels
+@model PackageCreateInputModel
+
+@{ 
+    this.ViewData["Title"] = "Package Create";
+}
+
+    <main class="w-50 mx-auto">
+        <h1 class="text-center">@this.ViewData["Title"]</h1>
+
+        <hr class="bg-panda" style="height: 2px" />
+
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Description" class="text-panda">Description</label>
+                <input asp-for="Description" class="form-control" placeholder="Description..." name="Description">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Weight" class="text-panda">Weight</label>
+                        <input asp-for="Weight" type="number" class="form-control" id="weight" placeholder="Weight..." name="Weight">
+                        <span asp-validation-for="Weight" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="ShippingAddress" class="text-panda">Shipping Address</label>
+                        <input asp-for="ShippingAddress" class="form-control" placeholder="Shipping Address..." name="ShippingAddress">
+                        <span asp-validation-for="ShippingAddress" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-panda" style="height: 2px" />
+            <div class="form-group text-center">
+                <label asp-for="RecipientId">Recipient</label>
+                <select asp-for="RecipientId" class="form-control">
+                    <option selected disabled>-- Choose Recipient --</option>
+                    @foreach (var recipient in this.Model.Recipients)
+                    {
+                        <option value="@recipient.Id">@recipient.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="RecipientId" class="text-danger"></span>
+            </div>
+            <hr class="bg-panda" style="height: 2px" />
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn bg-panda text-white" style="background: black">Create</button>
+            </div>
+        </form>
+    </main>

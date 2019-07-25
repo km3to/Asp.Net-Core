@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Panda.Data", "Panda.Data\Pa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Panda.Data.Models", "Panda.Data.Models\Panda.Data.Models.csproj", "{4AB3FD19-D782-4232-B8D5-202892B644AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.BindingModels", "Panda.BindingModels\Panda.BindingModels.csproj", "{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Panda.BindingModels", "Panda.BindingModels\Panda.BindingModels.csproj", "{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda.Data.Services", "Panda.Data.Services\Panda.Data.Services.csproj", "{7541F38D-7AED-410A-8E30-2EE230B99974}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FABD6C5-2A1E-4394-8FCA-C104B75DB7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7541F38D-7AED-410A-8E30-2EE230B99974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7541F38D-7AED-410A-8E30-2EE230B99974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7541F38D-7AED-410A-8E30-2EE230B99974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7541F38D-7AED-410A-8E30-2EE230B99974}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

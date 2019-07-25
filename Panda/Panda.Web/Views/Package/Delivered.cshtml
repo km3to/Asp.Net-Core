@@ -1,0 +1,38 @@
+﻿@using Panda.BindingModels.ViewModels
+@model ICollection<PackagePendingViewModel>
+
+@{
+    this.ViewData["Title"] = "Delivered";
+    var counter = 1;
+}
+
+<main>
+    <h1 class="text-center text-panda">@this.ViewData["Title"]</h1>
+    <hr class="bg-panda w-100" style="height: 2px" />
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"><strong>#</strong></th>
+                <th scope="col"><strong>Description</strong></th>
+                <th scope="col"><strong>Weight</strong></th>
+                <th scope="col"><strong>Shipping Address</strong></th>
+                <th scope="col"><strong>Recipient</strong></th>
+                <th scope="col"><strong>Actions</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in this.Model)
+            {
+            <tr>
+                <td>@(counter++)</td>
+                <td>@item.Description</td>
+                <td>@item.Weight</td>
+                <td>@item.ShippingAddress</td>
+                <td>@item.RecipientName</td>
+                <td><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark btn-sm">Details</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</main>

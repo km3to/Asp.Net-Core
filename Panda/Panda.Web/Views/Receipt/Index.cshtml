@@ -1,0 +1,35 @@
+﻿@using Panda.BindingModels.ViewModels
+@model ICollection<ReceiptIndexViewModel>
+
+@{
+    this.ViewData["Title"] = "My receipts";
+}
+
+<main>
+    <h1 class="text-center text-panda">@this.ViewData["Title"]</h1>
+    <hr class="bg-panda w-100" style="height: 2px" />
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"><strong>Id</strong></th>
+                <th scope="col"><strong>Fee</strong></th>
+                <th scope="col"><strong>Issued On</strong></th>
+                <th scope="col"><strong>Recipient</strong></th>
+                <th scope="col"><strong>Actions</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in this.Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Fee</td>
+                    <td>@item.IssuedOn</td>
+                    <td>@item.RecipientName</td>
+                    <td><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark btn-sm">Details</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>

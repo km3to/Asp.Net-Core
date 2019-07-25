@@ -1,23 +1,19 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Panda.BindingModels.ViewModels;
-using Panda.Data.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Panda.BindingModels.InputModels;
+using Panda.Data.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
 namespace Panda.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<PandaUser> userManager;
-        private readonly SignInManager<PandaUser> signInManager;
+        private readonly AccountService accountService;
 
-        public AccountController(UserManager<PandaUser> userManager, SignInManager<PandaUser> signInManager)
+        public AccountController(AccountService accountService)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
+            this.accountService = accountService;
         }
 
         public IActionResult Login()
@@ -26,14 +22,19 @@ namespace Panda.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(AccountLoginViewModel model)
+        public async Task<IActionResult> Login(AccountLoginInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
 
-            var result = await this.signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: true);
+            var result = await this.accountService.Login(model);
+
+            if (!result.Succeeded)
+            {
+                return this.View(model);
+            }
 
             return this.Redirect("/");
         }
@@ -44,23 +45,34 @@ namespace Panda.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(AccountRegisterViewModel model)
+        public async Task<IActionResult> Register(AccountRegisterInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(model);
             }
 
-            var user = new PandaUser { UserName = model.Username, Email = model.Email };
-            var result = await this.userManager.CreateAsync(user, model.Password);
-            await this.signInManager.SignInAsync(user, isPersistent: false);
+            SignInResult result;
+            try
+            {
+                result = await this.accountService.Register(model);
+            }
+            catch (Exception e)
+            {
+                return this.Json(e.Message);
+            }
+
+            if (!result.Succeeded)
+            {
+                return this.View(model);
+            }
 
             return this.Redirect("/");
         }
 
         public async Task<IActionResult> Logout()
         {
-            await this.signInManager.SignOutAsync();
+            await this.accountService.Logout();
 
             return this.Redirect("/");
         }

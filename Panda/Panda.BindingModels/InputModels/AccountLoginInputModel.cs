@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Panda.BindingModels.ViewModels
+namespace Panda.BindingModels.InputModels
 {
-    public class AccountLoginViewModel
+    public class AccountLoginInputModel
     {
         [Required]
         public string Username { get; set; }

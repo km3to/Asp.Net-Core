@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Panda.Data;
 using Panda.Data.Models;
+using Panda.Data.Services;
 
 namespace Panda.Web
 {
@@ -46,6 +47,10 @@ namespace Panda.Web
                 .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddTransient<AccountService>();
+            services.AddTransient<PackageService>();
+            services.AddTransient<ReceiptService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

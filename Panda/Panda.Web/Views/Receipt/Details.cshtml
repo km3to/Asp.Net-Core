@@ -1,0 +1,41 @@
+﻿@using Panda.BindingModels.ViewModels
+@model ReceiptDetailsViewModel
+
+@{
+    this.ViewData["Title"] = "Receipt Details";
+}
+
+<main>
+    <h1 class="text-center">@this.ViewData["Title"]</h1>
+    <hr class="bg-panda" style="height: 2px" />
+    <div class="row">
+        <h5 class="col-6 d-flex align-content-start">
+            Receipt Number:
+        </h5>
+        <h5 class="col-6 d-flex justify-content-end">
+            @this.Model.Id
+        </h5>
+    </div>
+    <hr class="bg-panda" style="height: 2px" />
+    <div class="row">
+        <div class="col-6 d-flex align-content-start">Issued On:</div>
+        <div class="col-6 d-flex justify-content-end">@this.Model.IssuedOn</div>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex align-content-start">Delivery Address:</div>
+        <div class="col-6 d-flex justify-content-end">@this.Model.DeliveryAddress</div>
+    </div>
+    <hr class="bg-panda" style="height: 2px" />
+    <div class="row">
+        <div class="col-6 d-flex align-content-start">Package Weight (KG):</div>
+        <div class="col-6 d-flex justify-content-end">@this.Model.PackageWeight</div>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex align-content-start">Package Description:</div>
+        <div class="col-6 d-flex justify-content-end">@this.Model.PackageDescription</div>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex align-content-start">Recipient:</div>
+        <div class="col-6 d-flex justify-content-end">@this.Model.RecipientName</div>
+    </div>
+</main>

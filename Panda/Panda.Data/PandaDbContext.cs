@@ -4,7 +4,7 @@ using Panda.Data.Models;
 
 namespace Panda.Data
 {
-    public class PandaDbContext : IdentityDbContext<PandaUser>
+    public class PandaDbContext : IdentityDbContext<PandaUser, PandaUserRole, string>
     {
         public PandaDbContext(DbContextOptions<PandaDbContext> options)
             : base(options)
@@ -34,6 +34,13 @@ namespace Panda.Data
                 .HasOne(p => p.Receipt)
                 .WithOne(r => r.Package)
                 .HasForeignKey<Package>(x => x.ReceiptId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Entity<Receipt>()
+                .HasOne(r => r.Package)
+                .WithOne(p => p.Receipt)
+                .HasForeignKey<Receipt>(x => x.PackageId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);

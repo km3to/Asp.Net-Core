@@ -14,10 +14,10 @@ namespace Panda.Data.Models
 
         public string RecipientId { get; set; }
 
-        public PandaUser Recipient { get; set; }
+        public virtual PandaUser Recipient { get; set; }
 
         public string PackageId { get; set; }
 
-        public Package Package { get; set; }
+        public virtual Package Package { get; set; }
     }
 }

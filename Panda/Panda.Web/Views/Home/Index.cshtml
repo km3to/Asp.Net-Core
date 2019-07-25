@@ -1,12 +1,55 @@
-﻿@{
+﻿@using Panda.BindingModels.ViewModels
+@model HomeIndexViewModel
+
+@{
     this.ViewData["Title"] = "Index";
 }
 
-<hr class="bg-panda" style="height: 2px" />
-<main>
-    <div class="jumbotron bg-panda text-white" style="background: black">
-        <h1>Hello, <span class="text-warning">@this.User.Identity.Name</span></h1>
-        <hr class="bg-white" style="height: 2px" />
-        <h2>We wish you a fun experience.</h2>
+
+<h1 class="text-center">Hello, @this.User.Identity.Name!</h1>
+
+<hr class="hr-2 bg-panda">
+<div class="d-flex justify-content-between">
+    <div class="w-25 bg-white">
+        <h2 class="text-center">Pending</h2>
+        <div class="border-panda p-3">
+            <ul>
+                @foreach (var item in this.Model.Penging)
+                {
+                    <li>
+                        <span>@item.Name</span>
+                        <a asp-controller="Package" asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark btn-sm">Details</a>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
-</main>
+    <div class="w-25 bg-white">
+        <h2 class="text-center">Shipped</h2>
+        <div class="border-panda p-3">
+            <ul>
+                @foreach (var item in this.Model.Shipped)
+                {
+                    <li>
+                        <span>@item.Name</span>
+                        <a asp-controller="Package" asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark btn-sm">Details</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="w-25 bg-white">
+        <h2 class="text-center">Delivered</h2>
+        <div class="border-panda p-3">
+            <ul>
+                @foreach (var item in this.Model.Delivered)
+                {
+                    <li>
+                        <span>@item.Name</span>
+                        <a asp-controller="Package" asp-action="Aquire" asp-route-id="@item.Id" class="btn btn-dark btn-sm">Aquire</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

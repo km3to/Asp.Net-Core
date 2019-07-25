@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Panda.BindingModels\Panda.BindingModels.csproj" />
+    <ProjectReference Include="..\Panda.Data.Models\Panda.Data.Models.csproj" />
+    <ProjectReference Include="..\Panda.Data\Panda.Data.csproj" />
+  </ItemGroup>
+
+</Project>

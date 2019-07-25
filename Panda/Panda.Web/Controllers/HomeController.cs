@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Panda.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,13 @@ namespace Panda.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly PackageService packageService;
+
+        public HomeController(PackageService packageService)
+        {
+            this.packageService = packageService;
+        }
+
         public IActionResult Index()
         {
             if (!this.User.Identity.IsAuthenticated)
@@ -15,7 +23,9 @@ namespace Panda.Web.Controllers
                 return this.View("AIndex");
             }
 
-            return this.View();
+            var model = this.packageService.GetHomeIndexModel();
+
+            return this.View(model);
         }
     }
 }
